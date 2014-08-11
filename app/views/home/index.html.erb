@@ -1,3 +1,14 @@
 <h2>Welcome</h2>
 
+<% if flash[:notice] %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
 <%= link_to "About", about_index_path %>
+<%= link_to "New gif", new_gif_path %>
+
+<% if @gifs %>
+  <% @gifs.each do |gif| %>
+    <img src="<%= gif.url %>" class="gif"/>
+    <p><%= gif.title %></p>
+  <% end %>
+<% end %>
