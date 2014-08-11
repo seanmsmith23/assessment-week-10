@@ -7,18 +7,16 @@
 <% end %>
 
 <%= form_for @gif do |f| %>
-  <p>
-    <!--<div style="display: inline-block">-->
-    <%= f.label :url, "URL" %><br>
+  <p style="display: inline-block;">
+    <%= f.label :url, "URL" %>
       <%= f.text_field :url %>
       <% if @gif.errors[:url] %>
         <p class="error-message"><%= @gif.errors[:url].first %></p>
       <% end %>
-    <!--</div>-->
   </p>
 
   <p style="display: inline-block;">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
       <% if @gif.errors[:title] %>
         <p class="error-message"><%= @gif.errors[:title].first %></p>
