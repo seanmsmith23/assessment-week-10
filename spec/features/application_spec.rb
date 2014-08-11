@@ -38,4 +38,16 @@ feature "Application" do
     expect(page.find('.gif')['src']).to have_content("http://www.somegif.com")
     expect(page).to have_content "gif created successfully"
   end
+
+  scenario "User cannot create gif without a url or title" do
+    visit "/"
+
+    click_link "New gif"
+
+    click_button "Create gif"
+
+    expect(page).to have_content "Url can't be blank"
+    expect(page).to have_content "Title can't be blank"
+    expect(page).to have_button("Create gif")
+  end
 end

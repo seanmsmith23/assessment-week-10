@@ -6,8 +6,12 @@ class GifsController < ApplicationController
 
   def create
     @gif = Gif.create(url: params[:gif][:url], title: params[:gif][:title])
-    @gif.save if @gif.valid?
-    redirect_to root_path, notice: "gif created successfully"
+    if @gif.valid?
+      @gif.save
+      redirect_to root_path, notice: "gif created successfully"
+    else
+      render "new"
+    end
   end
 
 end
