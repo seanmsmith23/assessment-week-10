@@ -7,11 +7,22 @@
 <% end %>
 
 <%= form_for @gif do |f| %>
-  <%= f.label :url, "URL" %><br>
-  <%= f.text_field :url %><br>
+  <p>
+    <!--<div style="display: inline-block">-->
+    <%= f.label :url, "URL" %><br>
+      <%= f.text_field :url %>
+      <% if @gif.errors[:url] %>
+        <p class="error-message"><%= @gif.errors[:url].first %></p>
+      <% end %>
+    <!--</div>-->
+  </p>
 
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br><br>
-
+  <p style="display: inline-block;">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+      <% if @gif.errors[:title] %>
+        <p class="error-message"><%= @gif.errors[:title].first %></p>
+      <% end %>
+  </p>
   <%= f.submit "Create gif" %>
 <% end %>

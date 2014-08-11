@@ -50,4 +50,15 @@ feature "Application" do
     expect(page).to have_content "Title can't be blank"
     expect(page).to have_button("Create gif")
   end
+
+  scenario "fancy errors" do
+    visit "/"
+
+    click_link "New gif"
+
+    click_button "Create gif"
+
+    expect(page.find('.error-message:nth-of-type(1)')).to have_content("can't be blank")
+    expect(page.find('.error-message:nth-of-type(2)')).to have_content("can't be blank")
+  end
 end

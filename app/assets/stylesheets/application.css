@@ -17,3 +17,18 @@
 .flash {
     background-color: green;
 }
+
+.field_with_errors {
+    display: inline-block;
+}
+
+.field_with_errors input {
+    display: inline-block;
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    margin: 0px;
+    display: inline-block;
+}
